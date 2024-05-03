@@ -36,7 +36,7 @@ def short_form(request):
 
 
 @api_view(['POST'])
-def video_qa(query):
+def video_qa(request):
     query = request.data.get('query')
     if query is None:
         return Response({'error': 'Query not provided'}, status=400)

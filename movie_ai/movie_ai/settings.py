@@ -124,6 +124,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MONGO_DATABASE_NAME = 'scenesdb'
-MONGO_URI = 'mongodb://localhost:27017/scenesdb'
+MONGO_DATABASE_NAME = 'moviedb'
+MONGO_URI = 'mongodb://localhost:27017/moviedb'
 

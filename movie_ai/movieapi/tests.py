@@ -28,7 +28,7 @@ class MovieAPITestCase(TestCase):
         response = self.client.post('/avatar_chat/', {"query": "What did it feel like to encounter the Wizard?", "Character": "Dorothy"})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_avatar_chat_1(self):
+    def test_avatar_chat_2(self):
         response = self.client.post('/avatar_chat/', {"query": "How did melting feel like?", "Character": "Witch"})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

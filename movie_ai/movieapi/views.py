@@ -13,14 +13,14 @@ from langchain_openai import OpenAIEmbeddings
 import json
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def short_form(request):
     query = request.data.get('query')
     if query is None:
         return Response({'error': 'Query not provided'}, status=400)
 
     embeddings = OpenAIEmbeddings()
-    synopses_vectordb = FAISS.load_local("../../synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
+    synopses_vectordb = FAISS.load_local("/root/project/movie_ai/synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
     synopses_retriever = synopses_vectordb.as_retriever(search_kwargs={"k": 1})
     synopsis_doc = synopses_retriever.invoke(query)
 
@@ -35,14 +35,14 @@ def short_form(request):
     return Response(scene_timestamp)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def video_qa(query):
     query = request.data.get('query')
     if query is None:
         return Response({'error': 'Query not provided'}, status=400)
 
     embeddings = OpenAIEmbeddings()
-    synopses_vectordb = FAISS.load_local("../../synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
+    synopses_vectordb = FAISS.load_local("/root/project/movie_ai/synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
 
     synopses_retriever = synopses_vectordb.as_retriever(search_kwargs={"k": 5})
     synopses_docs = synopses_retriever.invoke(query)
@@ -62,7 +62,7 @@ def video_qa(query):
     return Response({"answer": answer})
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def avatar_chat(request):
     query = request.data.get('query')
     character = request.data.get('character')
@@ -70,7 +70,7 @@ def avatar_chat(request):
         return Response({'error': 'Query or character not provided'}, status=400)
 
     embeddings = OpenAIEmbeddings()
-    synopses_vectordb = FAISS.load_local("../../synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
+    synopses_vectordb = FAISS.load_local("/root/project/movie_ai/synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
     synopses_retriever = synopses_vectordb.as_retriever(search_kwargs={"k": 5})
     synopses_docs = synopses_retriever.invoke(query)
 

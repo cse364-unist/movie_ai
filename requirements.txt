@@ -5,8 +5,3 @@ langchain==0.1.17
 langchain-core
 langchain-community
 langchain-openai
-json
-tqdm
-base64
-requests
-tqdm

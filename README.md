@@ -57,31 +57,31 @@ We ran the unit tests and obtained a coverage report by running these commands (
 
 ```
 cd movie_ai
-coverage run --source='.' manage.py test movieapi
+coverage run --branch --source='.' manage.py test movieapi
 coverage report
 ```
 
 Coverage report contents are a follows:
 
 ```
-Name                              Stmts   Miss  Cover
------------------------------------------------------
-manage.py                            12      2    83%
-movie_ai/__init__.py                  0      0   100%
-movie_ai/asgi.py                      4      4     0%
-movie_ai/settings.py                 20      0   100%
-movie_ai/urls.py                      3      0   100%
-movie_ai/wsgi.py                      4      4     0%
-movieapi/__init__.py                  0      0   100%
-movieapi/admin.py                     1      0   100%
-movieapi/apps.py                      4      0   100%
-movieapi/migrations/__init__.py       0      0   100%
-movieapi/models.py                    1      0   100%
-movieapi/mongo_utils.py               5      0   100%
-movieapi/tests.py                    25      0   100%
-movieapi/urls.py                      3      0   100%
-movieapi/views.py                    68      4    94%
------------------------------------------------------
-TOTAL                               150     14    91%
+Name                              Stmts   Miss Branch BrPart  Cover
+-------------------------------------------------------------------
+manage.py                            12      2      2      1    79%
+movie_ai/__init__.py                  0      0      0      0   100%
+movie_ai/asgi.py                      4      4      0      0     0%
+movie_ai/settings.py                 20      0      0      0   100%
+movie_ai/urls.py                      3      0      0      0   100%
+movie_ai/wsgi.py                      4      4      0      0     0%
+movieapi/__init__.py                  0      0      0      0   100%
+movieapi/admin.py                     1      0      0      0   100%
+movieapi/apps.py                      4      0      0      0   100%
+movieapi/migrations/__init__.py       0      0      0      0   100%
+movieapi/models.py                    1      0      0      0   100%
+movieapi/mongo_utils.py               5      0      0      0   100%
+movieapi/tests.py                    25      0      0      0   100%
+movieapi/urls.py                      3      0      0      0   100%
+movieapi/views.py                    68      4     14      5    89%
+-------------------------------------------------------------------
+TOTAL                               150     14     16      6    88%
 ```
 

@@ -1,6 +1,6 @@
 ### Movie Video Understanding API
 
-This Django REST API provides functionalities that allow users to interact with movies such as retrieving specific scenes, answering movie-related questions, and engaging in dialogue with movie characters. For the demo, you can interact with a five minute clip compilation of the movie, <The Wizard of OZ>. (Using `generate_synopses.py` we generated synopses for each scene, and using `synopses_vectordb.py` we stored text embeddings of synopses in a vector database. You don't have to run these again.)
+This Django REST API provides functionalities that allow users to interact with movies such as retrieving specific scenes, answering movie-related questions, and engaging in dialogue with movie characters. For the demo, you can interact with a five minute clip compilation of the movie, The Wizard of OZ. (Using `generate_synopses.py` we generated synopses for each scene, and using `synopses_vectordb.py` we stored text embeddings of synopses in a vector database. You don't have to run these again.)
 
 #### Key Features
 
@@ -15,7 +15,7 @@ This Django REST API provides functionalities that allow users to interact with 
 
 #### REST API Endpoints
 
-1. **Short-Form Video Content Generation**
+1. **Short-Form Video Content Generation*
    - **Endpoint**: `/movieapi/short_form`
    - **Method**: POST
    - **Description**: Receives a textual query about a movie scene and returns the video timestemp of the scene corresponding to the query.

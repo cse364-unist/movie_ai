@@ -78,10 +78,10 @@ movieapi/apps.py                      4      0      0      0   100%
 movieapi/migrations/__init__.py       0      0      0      0   100%
 movieapi/models.py                    1      0      0      0   100%
 movieapi/mongo_utils.py               5      0      0      0   100%
-movieapi/tests.py                    25      0      0      0   100%
+movieapi/tests.py                    34      0      0      0   100%
 movieapi/urls.py                      3      0      0      0   100%
-movieapi/views.py                    68      4     14      5    89%
+movieapi/views.py                    68      1     14      2    96%
 -------------------------------------------------------------------
-TOTAL                               150     14     16      6    88%
+TOTAL                               159     11     16      3    92%
 ```
 

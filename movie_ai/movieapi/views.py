@@ -15,7 +15,7 @@ import json
 
 @api_view(['POST'])
 def short_form(request):
-    query = request.data.get('query')
+    query = request.POST.get('query')
     if query is None:
         return Response({'error': 'Query not provided'}, status=400)
 
@@ -34,10 +34,9 @@ def short_form(request):
 
     return Response(scene_timestamp)
 
-
 @api_view(['POST'])
 def video_qa(request):
-    query = request.data.get('query')
+    query = request.POST.get('query')
     if query is None:
         return Response({'error': 'Query not provided'}, status=400)
 
@@ -61,11 +60,10 @@ def video_qa(request):
 
     return Response({"answer": answer})
 
-
 @api_view(['POST'])
 def avatar_chat(request):
-    query = request.data.get('query')
-    character = request.data.get('character')
+    query = request.POST.get('query')
+    character = request.POST.get('character')
     if query is None or character is None:
         return Response({'error': 'Query or character not provided'}, status=400)
 

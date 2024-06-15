@@ -94,11 +94,14 @@ st.title('Movie Understanding Web App')
 
 video_path = "./data/movie.mp4"
 if "video_start_time" not in st.session_state:
-    st.session_state.video_start_time = 0
+    st.session_state.video_start_time = None
 if "video_end_time" not in st.session_state:
     st.session_state.video_end_time = None
 
-video_element = st.video(video_path, start_time=st.session_state.video_start_time, end_time=st.session_state.video_end_time)
+if st.session_state.video_start_time is not None and st.session_state.video_end_time is not None:
+    st.video(video_path, start_time=st.session_state.video_start_time, end_time=st.session_state.video_end_time)
+else:
+    st.video(video_path)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

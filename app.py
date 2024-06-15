@@ -47,13 +47,8 @@ def handle_input(user_input):
             start = scene_info['timestamp']['start']
             end = scene_info['timestamp']['end']
             synopsis = scene_info['synopsis']
-            st.session_state.messages.append(('system', synopsis))
-            st.session_state.messages.append(('system', "Enter /revert to revert."))
 
-            start_time = int(start.split(':')[0]) * 60 + int(start.split(':')[1])
-            end_time = int(end.split(':')[0]) * 60 + int(end.split(':')[1])
-            st.session_state.video_start_time = start_time
-            st.session_state.video_end_time = end_time
+            st.session_state.messages.append(('system', f"{start} ~ {end} - {synopsis}"))
 
     elif user_input.startswith('/qa'):
         query = user_input.replace('/qa', '').strip()
@@ -93,15 +88,7 @@ def stream_message(message):
 st.title('Movie Understanding Web App')
 
 video_path = "./data/movie.mp4"
-if "video_start_time" not in st.session_state:
-    st.session_state.video_start_time = None
-if "video_end_time" not in st.session_state:
-    st.session_state.video_end_time = None
-
-if st.session_state.video_start_time is not None and st.session_state.video_end_time is not None:
-    st.video(video_path, start_time=st.session_state.video_start_time, end_time=st.session_state.video_end_time)
-else:
-    st.video(video_path)
+st.video(video_path)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

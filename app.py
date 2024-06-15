@@ -92,7 +92,7 @@ def stream_message(message):
 
 st.title('Movie Understanding Web App')
 
-video_path = "movie.mp4"
+video_path = "./data/movie.mp4"
 if "video_start_time" not in st.session_state:
     st.session_state.video_start_time = 0
 if "video_end_time" not in st.session_state:

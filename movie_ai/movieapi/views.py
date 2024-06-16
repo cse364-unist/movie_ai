@@ -5,7 +5,8 @@ from django.shortcuts import render
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .mongo_utils import get_mongo_client
+
+from pymongo import MongoClient
 
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -15,6 +16,11 @@ from langchain_openai import OpenAIEmbeddings
 
 import json
 
+
+def get_mongo_client():
+    client = MongoClient('mongodb://admin:admin@localhost:27017/')
+    db = client['moviedb']
+    return db
 
 @api_view(['POST'])
 def short_form(request):

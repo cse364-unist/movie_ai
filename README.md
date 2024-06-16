@@ -1,6 +1,6 @@
 # Movie Video Understanding Web App
 
-Welcome to the Movie Video Understanding Web App! This web application leverages advanced AI-driven video understanding to provide users with rich interactions based on movie scenes. Whether you’re interested in exploring specific scenes, getting answers to movie-related questions, or chatting with movie characters, our app has you covered.
+Welcome to the Movie Video Understanding Web App! This web application leverages advanced AI-driven video understanding to provide users with rich interactions based on movie scenes. Whether you’re interested in exploring specific scenes, getting answers to movie-related questions, or chatting with movie characters, our app has you covered. After running Docker, you can use the web app by visiting http://localhost:8080/
 
 ## Features
 

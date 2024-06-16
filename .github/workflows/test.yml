@@ -12,17 +12,6 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    services:
-      mongodb:
-        image: mongo:6.0
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
     env:
       DEBIAN_FRONTEND: noninteractive
 
@@ -43,9 +32,18 @@ jobs:
         pip install -r movie_ai/requirements.txt
         pip install coverage
 
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.11.0
+      with:
+        mongodb-version: '6.0'
+
     - name: Wait for MongoDB to be ready
       run: |
-        until mongo --eval 'db.runCommand({ ping: 1 })'; do
+        for i in {1..30}; do
+          if mongo --eval 'db.runCommand({ ping: 1 })'; then
+            echo "MongoDB is ready!"
+            break
+          fi
           echo "Waiting for MongoDB to start..."
           sleep 5
         done

@@ -85,9 +85,3 @@ jobs:
         source movie_env/bin/activate
         cd movie_ai
         coverage run --branch --source='.' manage.py test movieapi
-
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v2
-      with:
-        name: coverage-report
-        path: movie_ai/htmlcov

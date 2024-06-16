@@ -1,3 +1,6 @@
+import os
+
+from django.conf import settings
 from django.shortcuts import render
 
 from rest_framework.decorators import api_view
@@ -20,7 +23,7 @@ def short_form(request):
         return Response({'error': 'Query not provided'}, status=400)
 
     embeddings = OpenAIEmbeddings()
-    synopses_vectordb = FAISS.load_local("/root/project/movie_ai/synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
+    synopses_vectordb = FAISS.load_local(os.path.join(settings.BASE_DIR, '..', 'synopses_vectordb'), embeddings, allow_dangerous_deserialization=True)
     synopses_retriever = synopses_vectordb.as_retriever(search_kwargs={"k": 1})
     synopsis_doc = synopses_retriever.invoke(query)
 
@@ -41,7 +44,7 @@ def video_qa(request):
         return Response({'error': 'Query not provided'}, status=400)
 
     embeddings = OpenAIEmbeddings()
-    synopses_vectordb = FAISS.load_local("/root/project/movie_ai/synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
+    synopses_vectordb = FAISS.load_local(os.path.join(settings.BASE_DIR, '..', 'synopses_vectordb'), embeddings, allow_dangerous_deserialization=True)
 
     synopses_retriever = synopses_vectordb.as_retriever(search_kwargs={"k": 5})
     synopses_docs = synopses_retriever.invoke(query)
@@ -68,7 +71,7 @@ def avatar_chat(request):
         return Response({'error': 'Query or character not provided'}, status=400)
 
     embeddings = OpenAIEmbeddings()
-    synopses_vectordb = FAISS.load_local("/root/project/movie_ai/synopses_vectordb", embeddings, allow_dangerous_deserialization=True)
+    synopses_vectordb = FAISS.load_local(os.path.join(settings.BASE_DIR, '..', 'synopses_vectordb'), embeddings, allow_dangerous_deserialization=True)
     synopses_retriever = synopses_vectordb.as_retriever(search_kwargs={"k": 5})
     synopses_docs = synopses_retriever.invoke(query)
 

@@ -76,7 +76,7 @@ jobs:
 
     - name: Import MongoDB data
       run: |
-        mongoimport --uri "mongodb://admin:admin@localhost:27017/moviedb" --collection scenes --file data/scenes.json --jsonArray --authenticationDatabase admin --username admin --password admin
+        mongoimport --db moviedb --collection scenes --file data/scenes.json --type json --authenticationDatabase admin --username admin --password admin
 
     - name: Run tests with coverage
       env:

@@ -29,7 +29,7 @@ jobs:
         python -m venv movie_env
         source movie_env/bin/activate
         pip install --upgrade pip
-        pip install -r movie_ai/requirements.txt
+        pip install -r requirements.txt
         pip install coverage
 
     - name: Start MongoDB
@@ -51,7 +51,7 @@ jobs:
     - name: Import MongoDB data
       run: |
         sleep 10
-        mongoimport --db moviedb --collection scenes --file movie_ai/data/scenes.json --type json
+        mongoimport --db moviedb --collection scenes --file data/scenes.json --type json
 
     - name: Run tests with coverage
       env:
